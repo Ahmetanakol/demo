@@ -1,0 +1,32 @@
+server:
+  shutdown: graceful
+
+info:
+  name: '@project.artifactId@'
+  description: '@project.description@'
+  version: '@project.version@'
+
+spring:
+  application:
+    name: '@project.name@'
+  jackson:
+    date-format: yyyy-MM-dd'T'HH:mm:ss.SSS
+  main:
+    allow-bean-definition-overriding: true
+  jms:
+    servicebus:
+      connection-string: your_connection_string
+      pricing-tier: 'premium'
+      idle-timeout: 1800000
+      pool:
+        enabled: true
+
+management:
+  endpoint:
+    restart:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: '/management'

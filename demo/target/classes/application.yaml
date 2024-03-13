@@ -1,0 +1,33 @@
+server:
+  shutdown: graceful
+  max-http-request-header-size: 16KB
+
+info:
+  name: 'demo'
+  description: 'demo'
+  version: '0.0.1-SNAPSHOT'
+
+spring:
+  application:
+    name: 'demo'
+  jackson:
+    date-format: yyyy-MM-dd'T'HH:mm:ss.SSS
+  main:
+    allow-bean-definition-overriding: true
+  jms:
+    servicebus:
+      connection-string: Endpoint=sb://ece-nprdweub-mpl-servicebus-namespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=RRYYpG1yOaCgUfZvN/RA89OVnScn87LEe+ASbDxa9UE=
+      pricing-tier: 'premium'
+      idle-timeout: 1800000
+      pool:
+        enabled: true
+
+management:
+  endpoint:
+    restart:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: '/management'
